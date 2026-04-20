@@ -8,12 +8,10 @@
 
 <style>
 
-/* VARIABLES */
 :root {
   --dorado: #d4af37;
 }
 
-/* BODY */
 body {
   margin: 0;
   background: linear-gradient(135deg, #000000, #1a0000);
@@ -22,7 +20,6 @@ body {
   display: flex;
 }
 
-/* ✨ BRILLO SUAVE (AGREGADO) */
 body::after {
   content:"";
   position: fixed;
@@ -34,7 +31,6 @@ body::after {
   pointer-events: none;
 }
 
-/* GALERÍAS */
 .side {
   width: 25%;
   display: flex;
@@ -67,21 +63,18 @@ body::after {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* CENTRO */
 .center {
   width: 50%;
   text-align: center;
   padding: 20px;
 }
 
-/* TITULO */
 h1 {
   font-size: 60px;
   color: #ff1a1a;
   text-shadow: 0 0 10px red, 0 0 20px rgba(212,175,55,0.6);
 }
 
-/* NOMBRES */
 .nombres {
   font-family: 'Great Vibes', cursive;
   font-size: 80px;
@@ -97,7 +90,6 @@ h1 {
   text-shadow: 0 0 10px red, 0 0 25px var(--dorado);
 }
 
-/* LINEA DORADA */
 .linea-dorada {
   width: 60%;
   height: 2px;
@@ -105,14 +97,13 @@ h1 {
   background: linear-gradient(90deg, transparent, var(--dorado), transparent);
 }
 
-/* TEXTO */
+
 p {
   font-size: 24px;
   margin: 15px 0;
   line-height: 1.6;
 }
 
-/* BOTONES */
 .btn {
   display: inline-block;
   padding: 15px 25px;
@@ -132,7 +123,47 @@ p {
   box-shadow: 0 0 25px red, 0 0 20px gold;
 }
 
-/* CONTADOR */
+.btn-pase {
+  display: block;
+  width: 80%;
+  max-width: 350px;
+  margin: 40px auto 20px;
+  padding: 20px;
+  font-size: 22px;
+  text-align: center;
+  border-radius: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(45deg, #ff0000, #8b0000);
+  border: 3px solid var(--dorado);
+  box-shadow: 0 0 25px red, 0 0 20px gold;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.btn-pase::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(212,175,55,0.5), transparent);
+  animation: brilloBtn 3s infinite;
+}
+
+@keyframes brilloBtn {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.btn-pase:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 40px red, 0 0 30px gold;
+}
+
 .contador {
   display: flex;
   justify-content: center;
@@ -161,7 +192,6 @@ p {
   font-size: 12px;
 }
 
-/* MENSAJE */
 .mensaje {
   margin-top: 30px;
   padding: 20px;
@@ -171,70 +201,6 @@ p {
   border: 1px solid rgba(212,175,55,0.3);
 }
 
-/* QR PREMIUM */
-.qr-box {
-  margin-top: 25px;
-  padding: 20px;
-  border-radius: 20px;
-  position: relative;
-  overflow: hidden;
-  border: 2px solid var(--dorado);
-  box-shadow: 0 0 30px rgba(212,175,55,0.5);
-}
-
-.qr-box::before {
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(120deg, transparent, rgba(212,175,55,0.4), transparent);
-  animation: brillo 4s linear infinite;
-}
-
-@keyframes brillo {
-  0% { transform: translateX(-100%) rotate(25deg); }
-  100% { transform: translateX(100%) rotate(25deg); }
-}
-
-.qr-box img {
-  width: 200px;
-  border-radius: 15px;
-  position: relative;
-  z-index: 2;
-  box-shadow: 0 0 20px gold, 0 0 10px red;
-  animation: flotar 3s ease-in-out infinite;
-}
-
-@keyframes flotar {
-  50% { transform: translateY(-10px); }
-}
-
-.qr-title {
-  font-size: 22px;
-  color: var(--dorado);
-  text-shadow: 0 0 10px gold;
-}
-
-/* MODAL */
-#modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.95);
-  justify-content: center;
-  align-items: center;
-}
-
-#modal img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 15px;
-  box-shadow: 0 0 30px red, 0 0 20px var(--dorado);
-}
-
-/* 📱 RESPONSIVE (AGREGADO) */
 @media (max-width: 768px) {
   body { flex-direction: column; }
 
@@ -254,18 +220,8 @@ p {
   .nombres { font-size: 50px; }
   h1 { font-size: 38px; }
   p { font-size: 18px; }
-
-  .flip-box {
-    width: 65px;
-    padding: 10px;
-  }
-
-  .flip-box span {
-    font-size: 25px;
-  }
 }
 
-/* ANIMACIONES */
 @keyframes escribir { from{width:0} to{width:100%} }
 @keyframes blink { 50%{border-color:transparent} }
 
@@ -284,9 +240,7 @@ p {
 <div class="center">
 
 <h1>✨ XV Años ✨</h1>
-
 <div class="nombres">Alika & Ariana</div>
-
 <div class="linea-dorada"></div>
 
 <p><strong>13 de marzo de 2027</strong></p>
@@ -308,43 +262,35 @@ p {
 Agregar al calendario 📲
 </a>
 
-
 <div class="mensaje">
 
-<p>
-Para nosotras será un verdadero honor <br>
-contar con tu presencia<br>
-en esta fecha tan especial.<br><br>
-</p>
+<p> Para nosotras será un verdadero honor <br> 
+contar con tu presencia<br> 
+en esta fecha tan especial.<br><br> </p> 
 
-<p>
-Te solicitamos evitar los colores<br>
-<strong>rojo, negro y dorado</strong>
-para no perder <br>
-la armonia y elegancia,<br>
-solo recordando que es un evento formal.<br><br>
-</p>
+<p> Te solicitamos evitar los colores<br> 
+<strong>rojo, negro y dorado</strong> para no perder <br> 
+la armonia y elegancia,<br> 
+solo recordando que es un evento formal.<br><br> </p> 
 
-<p>
-Tu compañía es el mejor regalo 💖<br>
-pero si nos quieres dar algun detalle <br>
-puedes formar parte de nuestra<br>
-<strong>Lluvia de sobres ✉️</strong><br><br>
-</p>
+<p> Tu compañía es el mejor regalo 💖<br> 
+pero si nos quieres dar algun detalle <br> 
+puedes formar parte de nuestra<br> 
+<strong>Lluvia de sobres ✉️</strong><br><br> </p> 
 
-<p>
-Confirma tu asistencia antes del<br>
-<strong>20 de enero</strong>
-</p>
+<p> Confirma tu asistencia antes del<br> 
+<strong>20 de enero</strong> </p>
 
 <a class="btn" id="rsvpBtn" href="#">Confirmar asistencia 💌</a>
 
-<!-- QR AQUÍ -->
-<div class="qr-box">
-  <div class="qr-title">🎟 Pase Individual</div>
-  <img id="qrCode">
 </div>
-</div>
+
+<!-- BOTÓN VIP ABAJO -->
+<a class="btn-pase" 
+href="https://sofpedroza.github.io/invitacion-individual-XV/XV_ALIKA_ARIANA_individual/pase.html" 
+target="_blank">
+🎟 TU PASE INDIVIDUAL 🎟
+</a>
 
 </div>
 
@@ -355,18 +301,8 @@ Confirma tu asistencia antes del<br>
   <img src="img/foto4.jpeg">
 </div>
 
-<div id="modal">
-  <img id="modalImg">
-</div>
-
 <script>
 
-// QR FIJO
-const qrData = "PASE INDIVIDUAL - XV ALIKA & ARIANA - 13 MARZO 2027";
-document.getElementById("qrCode").src =
-"https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + encodeURIComponent(qrData);
-
-// WHATSAPP MEJORADO
 const params = new URLSearchParams(window.location.search);
 const invitado = params.get("nombre") || "Invitado";
 
@@ -374,43 +310,18 @@ document.getElementById("rsvpBtn").href =
 "https://wa.me/524492895484?text=" +
 encodeURIComponent("Hola, confirmo mi asistencia a los XV de Alika & Ariana. Nombre: " + invitado);
 
-// CONTADOR MEJORADO
 const eventDate = new Date("2027-03-13T18:00:00").getTime();
 
 setInterval(()=>{
   const now = new Date().getTime();
   const d = eventDate - now;
 
-  if(d <= 0){
-    document.getElementById("dias").innerText = "00";
-    document.getElementById("horas").innerText = "00";
-    document.getElementById("minutos").innerText = "00";
-    document.getElementById("segundos").innerText = "00";
-    return;
-  }
-
-  document.getElementById("dias").innerText = Math.floor(d/(1000*60*60*24)).toString().padStart(2,"0");
-  document.getElementById("horas").innerText = Math.floor((d/(1000*60*60))%24).toString().padStart(2,"0");
-  document.getElementById("minutos").innerText = Math.floor((d/(1000*60))%60).toString().padStart(2,"0");
-  document.getElementById("segundos").innerText = Math.floor((d/1000)%60).toString().padStart(2,"0");
+  document.getElementById("dias").innerText = Math.floor(d/(1000*60*60*24));
+  document.getElementById("horas").innerText = Math.floor((d/(1000*60*60))%24);
+  document.getElementById("minutos").innerText = Math.floor((d/(1000*60))%60);
+  document.getElementById("segundos").innerText = Math.floor((d/1000)%60);
 
 },1000);
-
-// MODAL
-const images = document.querySelectorAll(".side img");
-const modal = document.getElementById("modal");
-const modalImg = document.getElementById("modalImg");
-
-images.forEach(img=>{
-  img.addEventListener("click",()=>{
-    modal.style.display="flex";
-    modalImg.src=img.src;
-  });
-});
-
-modal.addEventListener("click",()=>{
-  modal.style.display="none";
-});
 
 </script>
 
